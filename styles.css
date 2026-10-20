@@ -45,9 +45,12 @@ a {
   max-width: var(--max);
   margin: 0 auto;
   padding: 1rem 1.25rem;
-  background: rgb(9 9 11 / 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
+  background: #09090b;
+  border-bottom: 1px solid var(--line);
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .brand {
