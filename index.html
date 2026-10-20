@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PulseRelate — Websites and social media</title>
+    <meta
+      name="description"
+      content="PulseRelate builds websites and runs social media for local businesses. Posts on Facebook, Instagram, and X, plus flyers and promotional content."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230ea5e9'/%3E%3Cpath d='M8 20.5c2.2-4.6 4.4-7 8-7s5.8 2.4 8 7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='11' r='2.2' fill='white'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">PulseRelate</a>
+      <nav class="nav" aria-label="Page">
+        <a href="#offer">What we offer</a>
+        <a href="#process">How it works</a>
+        <a href="#work">Work with us</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">Websites and social media</p>
+        <h1>A clear web presence for local businesses.</h1>
+        <p class="lede">
+          PulseRelate builds your website and keeps your social accounts active.
+          We post on Facebook, Instagram, and X, and we make the flyers and
+          promotional pieces that go with the work.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#work">Work with us</a>
+          <a class="button button-quiet" href="#offer">See what we offer</a>
+        </div>
+      </section>
+
+      <section id="offer" class="section">
+        <div class="section-intro">
+          <h2>What we offer</h2>
+          <p>Three services, handled together so the site and the posts match.</p>
+        </div>
+        <ul class="cards">
+          <li class="card">
+            <h3>Website creation</h3>
+            <p>
+              A straightforward site that explains who you are, what you do, and
+              how to reach you. We build it and get it ready to share.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Social posting</h3>
+            <p>
+              Regular posts on Facebook, Instagram, and X. Updates, offers, and
+              photos so the accounts stay active between jobs.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Flyers and promos</h3>
+            <p>
+              Flyers and other promotional content for print and social — events,
+              seasonal offers, and announcements.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="process" class="section">
+        <div class="section-intro">
+          <h2>How it works</h2>
+          <p>You tell us about the business. We handle the rest.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <div>
+              <h3>Tell us about the business</h3>
+              <p>Fill out a short form with what you do and what you need online.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div>
+              <h3>We put a plan together</h3>
+              <p>Pages, post topics, and the first flyers or promos, for you to approve.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div>
+              <h3>We publish and post</h3>
+              <p>The site goes live and the social posts start going out.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="work" class="section">
+        <div class="section-intro">
+          <h2>Work with us</h2>
+          <p>Curious about a website, social posting, or both? Send a note and we will follow up.</p>
+        </div>
+
+        <div id="form-soon" class="soon" hidden>
+          <p>Inquiry form opening soon.</p>
+        </div>
+
+        <div id="form-live" class="form-live" hidden>
+          <a id="form-link" class="button" href="" target="_blank" rel="noopener noreferrer">
+            Open the inquiry form
+          </a>
+          <iframe
+            id="form-frame"
+            title="PulseRelate inquiry form"
+            width="100%"
+            height="900"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="brand">PulseRelate</p>
+      <p>Websites and social media for local businesses.</p>
+    </footer>
+
+    <!-- Paste the Google Form "share" link here when it exists. -->
+    <script>
+      const FORM_URL = "";
+
+      const soon = document.getElementById("form-soon");
+      const live = document.getElementById("form-live");
+      const url = FORM_URL.trim();
+
+      function googleFormEmbed(value) {
+        const parsed = new URL(value);
+        const host = parsed.hostname;
+        const isForm =
+          parsed.protocol === "https:" &&
+          (host === "docs.google.com" || host === "forms.gle") &&
+          (host === "forms.gle" || parsed.pathname.includes("/forms/"));
+        if (!isForm) return null;
+        if (host === "forms.gle") return null;
+        parsed.searchParams.delete("usp");
+        parsed.searchParams.set("embedded", "true");
+        return parsed.toString();
+      }
+
+      if (!url) {
+        soon.hidden = false;
+      } else {
+        live.hidden = false;
+        const link = document.getElementById("form-link");
+        link.href = url;
+        const embed = googleFormEmbed(url);
+        const frame = document.getElementById("form-frame");
+        if (embed) {
+          frame.src = embed;
+        } else {
+          frame.hidden = true;
+        }
+      }
+    </script>
+  </body>
+</html>
