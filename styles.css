@@ -161,6 +161,7 @@ h1 {
 }
 
 .section {
+  scroll-margin-top: 4.5rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -219,6 +220,147 @@ h1 {
   margin: 0;
   color: var(--muted);
   line-height: 1.55;
+}
+
+.card-plan {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--sky-strong);
+}
+
+.card-plan .fit {
+  margin-top: auto;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--sky);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more:hover,
+.more:focus-visible {
+  color: var(--text);
+}
+
+.story {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+}
+
+.story p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.story p + p {
+  margin-top: 1rem;
+}
+
+.story .hello {
+  color: var(--text);
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.features {
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--sky);
+}
+
+.features li.includes {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.fit {
+  margin: 1.15rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fit strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reasons li {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--bg-raised);
+  line-height: 1.5;
+}
+
+.signature {
+  margin: 1.75rem 0 0;
+  line-height: 1.4;
+}
+
+.signature strong {
+  display: block;
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.signature span {
+  color: var(--muted);
+}
+
+.pull {
+  max-width: 28rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.pull p {
+  margin: 0;
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .steps {
@@ -292,6 +434,17 @@ h1 {
 
 .site-footer p {
   margin: 0.25rem 0 0;
+}
+
+.site-footer a {
+  color: var(--sky);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--text);
 }
 
 :focus-visible {
