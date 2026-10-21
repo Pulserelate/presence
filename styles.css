@@ -1,13 +1,16 @@
 :root {
   color-scheme: light;
-  --paper: #f6f3ec;
-  --sheet: #fffcf7;
-  --manila: #f3e2a4;
-  --ink: #1a1a1a;
-  --muted: #3a3a3a;
-  --rule: #d5cfc3;
-  --red: #8d2f24;
+  --paper: #f4f6f8;
+  --sheet: #ffffff;
+  --ink: #161b22;
+  --muted: #5c6770;
+  --line: #e3e8ee;
+  --accent: #0e7490;
+  --accent-deep: #0c5f76;
+  --band: #13232c;
+  --band-text: #e7eef1;
   --max: 68rem;
+  --shadow: 0 1px 2px rgb(16 24 32 / 0.04), 0 16px 40px -24px rgb(16 24 32 / 0.35);
 }
 
 * {
@@ -21,7 +24,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Public Sans", "Segoe UI", sans-serif;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--ink);
@@ -44,12 +47,12 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--manila);
+  background: #d5eef3;
   color: var(--ink);
 }
 
@@ -59,8 +62,9 @@ a {
   top: -4rem;
   z-index: 80;
   padding: 0.55rem 0.75rem;
+  border-radius: 8px;
   background: var(--ink);
-  color: var(--paper);
+  color: white;
   font-weight: 700;
   text-decoration: none;
 }
@@ -79,8 +83,9 @@ a {
   top: 0;
   z-index: 30;
   padding-top: env(safe-area-inset-top);
-  background: var(--paper);
-  border-bottom: 3px solid var(--ink);
+  background: rgb(244 246 248 / 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
 }
 
 .header-inner {
@@ -112,8 +117,8 @@ a {
 
 .brand-name {
   display: block;
-  font-family: Newsreader, Georgia, "Iowan Old Style", serif;
-  font-size: 1.35rem;
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-size: 1.28rem;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -136,20 +141,21 @@ a {
   min-height: 44px;
   min-width: 44px;
   padding: 0.35rem 0.8rem;
-  border: 1.5px solid var(--ink);
-  border-radius: 2px;
-  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--sheet);
   color: var(--ink);
   font: inherit;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgb(16 24 32 / 0.05);
 }
 
 .nav-toggle:hover,
 .nav-toggle:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  border-color: var(--accent);
+  color: var(--accent-deep);
 }
 
 .nav-toggle-icon {
@@ -165,15 +171,15 @@ a {
 }
 
 .nav a {
-  color: var(--ink);
-  font-weight: 700;
+  color: var(--muted);
+  font-weight: 600;
   text-decoration: none;
 }
 
 .nav a:hover,
 .nav a:focus-visible,
 .nav a[aria-current="page"] {
-  color: var(--red);
+  color: var(--ink);
 }
 
 @media (max-width: 899px) {
@@ -181,13 +187,14 @@ a {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: calc(100% + 3px);
+    top: calc(100% + 1px);
     left: 0;
     right: 0;
     z-index: 40;
-    padding: 0.15rem 0 0.5rem;
-    background: var(--paper);
-    border-bottom: 3px solid var(--ink);
+    padding: 0.35rem 0 0.6rem;
+    background: rgb(244 246 248 / 0.98);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 32px -24px rgb(16 24 32 / 0.45);
   }
 
   .nav a {
@@ -195,7 +202,8 @@ a {
     align-items: center;
     min-height: 48px;
     padding: 0.35rem 1rem;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--line);
+    color: var(--ink);
     font-size: 1.05rem;
   }
 }
@@ -218,31 +226,55 @@ a {
   align-items: center;
   gap: 0.5rem;
   margin: 0 0 0.85rem;
-  font-size: 0.95rem;
+  color: var(--accent-deep);
+  font-size: 0.92rem;
   font-weight: 700;
 }
 
 .kicker-mark {
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
   flex: none;
-  background: var(--red);
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+h1,
+h2,
+h3,
+.brand-name,
+.footer-name,
+.side-card strong,
+.step-num,
+.pull p {
+  font-family: Outfit, "Segoe UI", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Newsreader, Georgia, "Iowan Old Style", serif;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1.12;
   text-wrap: balance;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.35rem, 8vw, 4.35rem);
-  line-height: 1.04;
+  font-size: clamp(2.35rem, 8vw, 4.15rem);
+  line-height: 1.05;
+}
+
+.lede,
+.section-intro p,
+.close-block > p,
+.side-card span,
+.service-list p,
+.steps p,
+.extras p,
+.plan > p,
+.story p {
+  color: var(--muted);
 }
 
 .lede {
@@ -265,40 +297,45 @@ h1 {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0.7rem 1.1rem;
-  border: 1.5px solid var(--ink);
-  border-radius: 2px;
-  background: var(--ink);
-  color: var(--paper);
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  box-shadow: 0 1px 2px rgb(14 116 144 / 0.25);
 }
 
 .button:hover,
 .button:focus-visible {
-  background: var(--red);
-  border-color: var(--red);
-  color: #fffaf4;
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: white;
 }
 
 .button-quiet {
-  background: transparent;
+  background: var(--sheet);
+  border-color: var(--line);
   color: var(--ink);
+  box-shadow: none;
 }
 
 .button-quiet:hover,
 .button-quiet:focus-visible {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
+  border-color: var(--accent);
+  background: var(--sheet);
+  color: var(--accent-deep);
 }
 
 .side-card {
-  padding: 1.1rem 1.15rem 1.2rem;
-  border: 1.5px solid var(--ink);
-  background: var(--manila);
+  padding: 1.15rem 1.2rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--sheet);
+  box-shadow: var(--shadow);
 }
 
 .side-card-label {
@@ -314,7 +351,7 @@ h1 {
 
 .side-card li {
   padding: 0.7rem 0;
-  border-top: 1px solid rgb(26 26 26 / 0.22);
+  border-top: 1px solid var(--line);
   line-height: 1.4;
 }
 
@@ -329,15 +366,15 @@ h1 {
 
 .side-card a:hover,
 .side-card a:focus-visible {
-  color: var(--red);
+  color: var(--accent-deep);
 }
 
 .side-card strong {
   display: block;
-  font-family: Newsreader, Georgia, serif;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .side-card span {
@@ -348,13 +385,14 @@ h1 {
 .side-card-foot {
   margin: 0.85rem 0 0;
   padding-top: 0.85rem;
-  border-top: 1px solid rgb(26 26 26 / 0.22);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.98rem;
 }
 
 .section {
   padding: 2.6rem 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
   scroll-margin-top: 5.25rem;
 }
 
@@ -363,10 +401,9 @@ h1 {
 }
 
 .section-intro h2,
-.story-block h2,
 .close-block h2 {
   margin: 0;
-  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-size: clamp(1.85rem, 4vw, 2.45rem);
 }
 
 .section-intro p,
@@ -394,19 +431,19 @@ h1 {
   display: grid;
   gap: 0.35rem;
   padding: 1.25rem 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .service-list li:last-child,
 .extras li:last-child {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .service-list h3,
 .steps h3,
 .extras h3 {
   margin: 0;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
 }
 
 .service-list p,
@@ -421,23 +458,44 @@ h1 {
 .more {
   justify-self: start;
   margin-top: 0.75rem;
+  color: var(--accent-deep);
   font-weight: 700;
   text-underline-offset: 0.18em;
 }
 
 .more:hover,
 .more:focus-visible {
-  color: var(--red);
+  color: var(--ink);
 }
 
 .notice {
-  background: var(--manila);
-  border-top: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
+  background: var(--band);
+  color: white;
+  border-top: 0;
+  border-bottom: 0;
 }
 
 .notice + .section {
   border-top: 0;
+}
+
+.notice h2,
+.notice .place,
+.notice .kicker {
+  color: white;
+}
+
+.notice .kicker-mark {
+  background: #7dd3e8;
+}
+
+.notice .section-intro p,
+.notice .reasons li {
+  color: var(--band-text);
+}
+
+.notice .reasons li {
+  border-top-color: rgb(255 255 255 / 0.16);
 }
 
 .place {
@@ -450,15 +508,14 @@ h1 {
   grid-template-columns: 2.75rem minmax(0, 1fr);
   gap: 0.35rem 0.75rem;
   padding: 1.15rem 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .step-num {
-  font-family: Newsreader, Georgia, serif;
-  font-size: 1.65rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  line-height: 1;
-  color: var(--red);
+  line-height: 1.3;
+  color: var(--accent);
 }
 
 .soon,
@@ -468,8 +525,10 @@ h1 {
 
 .soon {
   padding: 1.1rem 1.15rem;
-  border: 1.5px dashed var(--ink);
-  background: var(--manila);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: var(--sheet);
+  color: var(--muted);
 }
 
 .soon p,
@@ -485,13 +544,16 @@ h1 {
 
 .form-hint {
   max-width: 38rem;
+  color: var(--muted);
 }
 
 #form-frame {
   width: 100%;
   height: 900px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 16px;
   background: white;
+  box-shadow: var(--shadow);
 }
 
 .story {
@@ -518,26 +580,29 @@ h1 {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 1.15rem 1.1rem 1.25rem;
-  border: 1.5px solid var(--ink);
+  padding: 1.2rem 1.15rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
   background: var(--sheet);
+  box-shadow: var(--shadow);
   scroll-margin-top: 5.25rem;
 }
 
 .plan-start {
-  background: var(--manila);
+  border-color: #b7dbe3;
+  background: #f3fbfc;
 }
 
 .plan-flag {
   margin: 0 0 0.35rem;
-  color: var(--red);
+  color: var(--accent-deep);
   font-size: 0.82rem;
   font-weight: 700;
 }
 
 .plan h3 {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: 1.55rem;
 }
 
 .plan > p {
@@ -552,23 +617,26 @@ h1 {
 
 .features li {
   padding: 0.55rem 0;
-  border-top: 1px solid rgb(26 26 26 / 0.16);
+  border-top: 1px solid var(--line);
   line-height: 1.4;
 }
 
 .features li.includes {
+  color: var(--ink);
   font-weight: 700;
 }
 
 .fit {
   margin-top: auto;
   padding-top: 0.9rem;
+  color: var(--muted);
   font-size: 0.98rem;
 }
 
 .fit strong {
   display: block;
   margin-bottom: 0.2rem;
+  color: var(--ink);
   font-size: 0.82rem;
   font-weight: 700;
 }
@@ -579,7 +647,7 @@ h1 {
 
 .extras li {
   padding: 1.05rem 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .reasons {
@@ -588,7 +656,7 @@ h1 {
 
 .reasons li {
   padding: 0.9rem 0.75rem 0.9rem 0;
-  border-top: 1px solid rgb(26 26 26 / 0.2);
+  border-top: 1px solid var(--line);
 }
 
 .pull {
@@ -596,16 +664,15 @@ h1 {
   margin: 1.5rem 0 0;
   padding: 0 0 0 0.9rem;
   border: 0;
-  border-left: 3px solid var(--red);
+  border-left: 3px solid var(--accent);
 }
 
 .pull p {
   margin: 0;
-  font-family: Newsreader, Georgia, serif;
-  font-size: clamp(1.4rem, 3vw, 1.85rem);
-  font-style: italic;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1.25;
 }
 
@@ -615,7 +682,8 @@ h1 {
 
 .site-footer {
   padding: 1.6rem 0 calc(2rem + env(safe-area-inset-bottom));
-  border-top: 3px solid var(--ink);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
 }
 
 .footer-grid {
@@ -625,8 +693,8 @@ h1 {
 
 .footer-name {
   margin: 0;
-  font-family: Newsreader, Georgia, serif;
-  font-size: 1.35rem;
+  color: var(--ink);
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.03em;
 }
@@ -643,13 +711,14 @@ h1 {
 }
 
 .footer-links a {
+  color: var(--ink);
   font-weight: 700;
   text-underline-offset: 0.16em;
 }
 
 .footer-links a:hover,
 .footer-links a:focus-visible {
-  color: var(--red);
+  color: var(--accent-deep);
 }
 
 @media (max-width: 720px) {
@@ -704,7 +773,7 @@ h1 {
   }
 
   .extras li:nth-last-child(2) {
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--line);
   }
 
   .footer-grid {
@@ -731,7 +800,7 @@ h1 {
   .steps li {
     display: block;
     padding: 1rem 0 0;
-    border-top: 3px solid var(--ink);
+    border-top: 2px solid var(--accent);
   }
 
   .step-num {
@@ -766,7 +835,7 @@ h1 {
   }
 
   .hero {
-    padding: 3rem 0 3.75rem;
+    padding: 3.25rem 0 4rem;
   }
 
   .hero-grid {
